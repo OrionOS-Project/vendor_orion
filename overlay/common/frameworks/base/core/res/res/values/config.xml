@@ -55,12 +55,6 @@
         <item>com.mediatek.ims</item>
         <!-- OmniJaws -->
         <item>org.omnirom.omnijaws</item>
-        <!-- SystemUI -->
-        <item>com.android.systemui</item>
-        <!-- Tethering -->
-        <item>com.android.networkstack.tethering</item>
-        <!-- GMS location history -->
-        <item>com.google.android.gms.location.history</item>
     </string-array>
 
     <!-- Set this to true to enable the platform's auto-power-save modes like doze and
