@@ -144,6 +144,10 @@ PRODUCT_PACKAGES += \
     mkfs.ntfs \
     mount.ntfs
 
+# GameSpace
+PRODUCT_PACKAGES += \
+    GameSpace
+
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/bin/fsck.ntfs \
     system/bin/mkfs.ntfs \
