@@ -1,11 +1,11 @@
 # Inherit common mobile Lineage stuff
-$(call inherit-product, vendor/lineage/config/common.mk)
+$(call inherit-product, vendor/orion/config/common.mk)
 
 # Include AOSP audio files
-include vendor/lineage/config/aosp_audio.mk
+include vendor/orion/config/aosp_audio.mk
 
 # Include Lineage audio files
-include vendor/lineage/config/lineage_audio.mk
+include vendor/orion/config/lineage_audio.mk
 
 # Default notification/alarm sounds
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -95,4 +95,4 @@ PRODUCT_PACKAGES += \
     ThemePicker \
     ThemesStub
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/lineage/overlay/mobile
+PRODUCT_PACKAGE_OVERLAYS += vendor/orion/overlay/mobile
