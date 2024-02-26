@@ -165,6 +165,10 @@ PRODUCT_PACKAGES += \
     ssh-keygen \
     start-ssh
 
+# ParanoidSense
+PRODUCT_PACKAGES += \
+    ParanoidSense
+
 PRODUCT_COPY_FILES += \
     vendor/orion/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
 
