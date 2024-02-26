@@ -11,7 +11,7 @@ endif
 
 ifndef ORION_BUILDTYPE
     ifdef RELEASE_TYPE
-        # Starting with "LINEAGE_" is optional
+        # Starting with "ORION_" is optional
         RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^ORION_||g')
         ORION_BUILDTYPE := $(RELEASE_TYPE)
     endif

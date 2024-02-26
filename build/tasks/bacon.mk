@@ -17,8 +17,8 @@ ORION_TARGET_PACKAGE := $(PRODUCT_OUT)/orion-$(ORION_VERSION).zip
 
 SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 
-.PHONY: bacon
-bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
+.PHONY: orion
+orion: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(ORION_TARGET_PACKAGE)
 	$(hide) $(SHA256) $(ORION_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(ORION_TARGET_PACKAGE).sha256sum
 	@echo -e ${CL_CYN}""${CL_CYN}

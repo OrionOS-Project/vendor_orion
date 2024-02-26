@@ -28,10 +28,10 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/orion/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/orion/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/orion/prebuilt/common/bin/50-lineage.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-lineage.sh
+    vendor/orion/prebuilt/common/bin/50-orion.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-orion.sh
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-    system/addon.d/50-lineage.sh
+    system/addon.d/50-orion.sh
 
 ifneq ($(strip $(AB_OTA_PARTITIONS) $(AB_OTA_POSTINSTALL_CONFIG)),)
 PRODUCT_COPY_FILES += \
@@ -50,13 +50,13 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 endif
 endif
 
-# Lineage-specific broadcast actions whitelist
+# Orion-specific broadcast actions whitelist
 PRODUCT_COPY_FILES += \
-    vendor/orion/config/permissions/lineage-sysconfig.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/lineage-sysconfig.xml
+    vendor/orion/config/permissions/orion-sysconfig.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/orion-sysconfig.xml
 
-# Lineage-specific init rc file
+# Orion-specific init rc file
 PRODUCT_COPY_FILES += \
-    vendor/orion/prebuilt/common/etc/init/init.lineage-system_ext.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lineage-system_ext.rc
+    vendor/orion/prebuilt/common/etc/init/init.orion-system_ext.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.orion-system_ext.rc
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
@@ -70,7 +70,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:$(TARGET_COPY_OUT_PRODUCT)/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# This is Lineage!
+# This is Orion!
 PRODUCT_COPY_FILES += \
     vendor/orion/config/permissions/org.lineageos.android.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/org.lineageos.android.xml
 
@@ -96,7 +96,7 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 
 ifneq ($(TARGET_DISABLE_EPPE),true)
 # Require all requested packages to exist
-$(call enforce-product-packages-exist-internal,$(wildcard device/*/$(LINEAGE_BUILD)/$(TARGET_PRODUCT).mk),product_manifest.xml rild Calendar Launcher3 Launcher3Go Launcher3QuickStep Launcher3QuickStepGo android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package)
+$(call enforce-product-packages-exist-internal,$(wildcard device/*/$(ORION_BUILD)/$(TARGET_PRODUCT).mk),product_manifest.xml rild Calendar Launcher3 Launcher3Go Launcher3QuickStep Launcher3QuickStepGo android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package)
 endif
 
 # Bootanimation
@@ -117,7 +117,7 @@ PRODUCT_PACKAGES += \
     Updater
 
 PRODUCT_COPY_FILES += \
-    vendor/orion/prebuilt/common/etc/init/init.lineage-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lineage-updater.rc
+    vendor/orion/prebuilt/common/etc/init/init.orion-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.orion-updater.rc
 
 # Config
 PRODUCT_PACKAGES += \

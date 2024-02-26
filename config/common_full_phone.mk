@@ -1,4 +1,4 @@
-# Inherit full common Lineage stuff
+# Inherit full common Orion stuff
 $(call inherit-product, vendor/orion/config/common_full.mk)
 
 # Required packages
