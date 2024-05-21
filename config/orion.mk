@@ -1,6 +1,6 @@
-# Evolution X packages
 PRODUCT_PACKAGES += \
-    GameSpace
+    GameSpace \
+    BtHelper
 
 ifeq ($(ORION_BUILD_TYPE),Official)
 PRODUCT_PACKAGES += \
