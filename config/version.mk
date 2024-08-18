@@ -6,12 +6,16 @@ ORION_VERSION := Hydroxide
 ORION_BUILD_TYPE ?= Unofficial
 
 # Internal version
-LINEAGE_VERSION := OrionOS-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date +%Y%m%d)-$(LINEAGE_BUILD)-$(ORION_VERSION)-$(EVO_BUILD_TYPE)
+ifeq ($(WITH_GMS),true)
+LINEAGE_VERSION := OrionOS-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date +%Y%m%d)-$(LINEAGE_BUILD)-$(ORION_VERSION)-$(ORION_BUILD_TYPE)
+else
+LINEAGE_VERSION := OrionOS-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date +%Y%m%d)-$(LINEAGE_BUILD)-$(ORION_VERSION)-Vanilla-$(ORION_BUILD_TYPE)
+endif
 
 # Display version
 LINEAGE_DISPLAY_VERSION := v$(ORION_VERSION)-$(shell date +%Y%m%d)
 
-# orion X version properties
+# OrionOS version properties
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.orion.build.version=$(LINEAGE_VERSION) \
     ro.orion.display.version=$(LINEAGE_DISPLAY_VERSION) \

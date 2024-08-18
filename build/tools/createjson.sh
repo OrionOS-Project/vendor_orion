@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-#$1=TARGET_DEVICE, $2=PRODUCT_OUT, $3=FILE_NAME
+#$1=TARGET_DEVICE, $2=PRODUCT_OUT, $3=FILE_NAME, $4=WITH_GMS
 existingOTAjson=./orion/OTA/builds/$1.json
 output=$2/$1.json
 
@@ -24,7 +24,15 @@ if [ -f $output ]; then
 	rm $output
 fi
 
-echo "Generating JSON for OTA..."
+if [ "$4" = "true" ]; then
+    echo "Generating JSON for OTA..."
+    variant="A15"
+    existingOTAjson=./orion/OTA/builds/$1.json
+else
+    echo "Generating JSON for OTA-VANILLA..."
+    variant="A15_vanilla"
+    existingOTAjson=./orion/OTA-VANILLA/builds/$1.json
+fi
 
 if [ -f $existingOTAjson ]; then
 	#get data from already existing device json
@@ -69,7 +77,7 @@ if [ -f $existingOTAjson ]; then
       "oem": "'$oem'",
       "device": "'$device'",
       "filename": "'$filename'",
-      "download": "https://sourceforge.net/projects/orionos/files/A15/'$1'/'$3'/download",
+      "download": "https://sourceforge.net/projects/orionos/files/'$variant'/'$1'/'$3'/download",
       "timestamp": '$timestamp',
       "md5": "'$md5'",
       "sha256": "'$sha256'",
@@ -104,7 +112,7 @@ else
       "oem": "''",
       "device": "''",
       "filename": "'$filename'",
-      "download": "https://sourceforge.net/projects/orionos/files/A15/'$1'/'$3'/download",
+      "download": "https://sourceforge.net/projects/orionos/files/'$variant'/'$1'/'$3'/download",
       "timestamp": '$timestamp',
       "md5": "'$md5'",
       "sha256": "'$sha256'",
