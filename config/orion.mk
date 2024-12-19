@@ -1,3 +1,7 @@
+# Evolution X packages
+PRODUCT_PACKAGES += \
+    GameSpace
+
 ifeq ($(ORION_BUILD_TYPE),Official)
 PRODUCT_PACKAGES += \
     Updater
