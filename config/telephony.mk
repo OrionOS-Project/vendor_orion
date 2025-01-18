@@ -35,4 +35,4 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.android.mobiledata=false
 
 # Inherit BCR
-$(call inherit-product, vendor/extras/bcr/bcr.mk)
+$(call inherit-product, vendor/addons/bcr/bcr.mk)

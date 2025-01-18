@@ -12,6 +12,9 @@ ifeq ($(WITH_GMS),true)
 $(call inherit-product, vendor/pixel-framework/config.mk)
 $(call inherit-product, vendor/pixel-style/config/common.mk)
 
+# Bootanimation
+include vendor/lineage/config/orion_bootanimation.mk
+
 # Don't dexpreopt prebuilts. (For GMS).
 DONT_DEXPREOPT_PREBUILTS := true
 endif
