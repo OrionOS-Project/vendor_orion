@@ -1,7 +1,6 @@
 PRODUCT_PACKAGES += \
     GameSpace \
-    BtHelper \
-    OmniStyle
+    BtHelper
 
 ifeq ($(ORION_BUILD_TYPE),Official)
 PRODUCT_PACKAGES += \
