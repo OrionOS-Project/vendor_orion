@@ -5,7 +5,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/Evolution-X/OTA/vic-vanilla/builds/{device}.json</string>
-    <string name="menu_changelog_url" translatable="false">https://raw.githubusercontent.com/Evolution-X/OTA/vic-vanilla/changelogs/<xliff:g id="device_name">%1$s</xliff:g>.txt</string>
+    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/OrionOS-Project/orion_ota/refs/heads/vic-vanilla/builds/{device}.json</string>
+    <string name="menu_changelog_url" translatable="false">https://raw.githubusercontent.com/OrionOS-Project/orion_ota/refs/heads/vic-vanilla/changelogs/<xliff:g id="device_name">%1$s</xliff:g>.txt</string>
 
 </resources>
