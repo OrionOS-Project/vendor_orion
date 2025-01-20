@@ -293,5 +293,4 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
     vendor/lineage/build/target/product/security/lineage
 
 include vendor/lineage/config/version.mk
-
 -include $(WORKSPACE)/build_env/image-auto-bits.mk

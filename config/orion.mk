@@ -1,15 +1,10 @@
 PRODUCT_PACKAGES += \
     GameSpace \
     BtHelper
-
-ifeq ($(ORION_BUILD_TYPE),Official)
-PRODUCT_PACKAGES += \
-    Updater
-
+    
 ifeq ($(WITH_GMS),false)
 PRODUCT_PACKAGES += \
     UpdaterVanillaOverlay
-endif
 endif
 
 ifeq ($(TARGET_SUPPORTS_64_BIT_APPS),true)
@@ -42,9 +37,5 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.arm64.memtag.process.system_server=off
 
 # Private keys
-ifeq ($(ORION_BUILD_TYPE),Official)
-include vendor/orion-priv/keys/keys.mk
-else
 -include vendor/orion-priv/keys/keys.mk
-endif
 
