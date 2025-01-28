@@ -17,7 +17,6 @@ endif
 LINEAGE_DISPLAY_VERSION := v$(ORION_VERSION)-$(shell date +%Y%m%d)
 
 ORION_BUILD_INFO := $(LINEAGE_VERSION)
-ORION_GAPPS := $(WITH_GAPPS)
 
 # OrionOS version properties
 PRODUCT_SYSTEM_PROPERTIES += \
