@@ -4,20 +4,20 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 $(call inherit-product, vendor/lineage/config/orion.mk)
 $(call inherit-product, vendor/addons/orion.mk)
 $(call inherit-product-if-exists, vendor/certification/config.mk)
+$(call inherit-product-if-exists, vendor/pixel-framework/config.mk)
 
 PRODUCT_BRAND ?= OrionOS
 
 # Pixel additions
 ifeq ($(WITH_GMS),true)
-$(call inherit-product, vendor/pixel-framework/config.mk)
 $(call inherit-product, vendor/pixel-style/config/common.mk)
-
-# Bootanimation
-include vendor/lineage/config/orion_bootanimation.mk
 
 # Don't dexpreopt prebuilts. (For GMS).
 DONT_DEXPREOPT_PREBUILTS := true
 endif
+
+# Bootanimation
+include vendor/lineage/config/orion_bootanimation.mk
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
