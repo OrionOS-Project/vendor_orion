@@ -1,7 +1,6 @@
 PRODUCT_PACKAGES += \
     GameSpace \
     BtHelper \
-    OmniStyle \
     OmniJaws
 
 ifeq ($(ORION_BUILD_TYPE),Official)
