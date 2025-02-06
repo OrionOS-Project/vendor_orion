@@ -7,20 +7,22 @@ $(call inherit-product-if-exists, vendor/pixel-framework/config.mk)
 
 PRODUCT_BRAND ?= OrionOS
 
-<<<<<<< HEAD
-# Pixel additions
-ifeq ($(WITH_GMS),true)
-$(call inherit-product, vendor/pixel-style/config/common.mk)
-
-# Don't dexpreopt prebuilts. (For GMS).
-DONT_DEXPREOPT_PREBUILTS := true
+# Gapps
+WITH_GMS := $(ORION_GAPPS)
+ifeq ($(ORION_GAPPS),true)
+ORION_BUILD_VARIANT := Gapps
+$(call inherit-product, vendor/gms/products/gms.mk)
+$(warning Build Gapps Variant.)
+else
+ORION_BUILD_VARIANT := Vanilla
+PRODUCT_PACKAGES += \
+    UpdaterVanillaOverlay
+$(warning Build Vanilla Variant.)
 endif
 
 # Bootanimation
 include vendor/lineage/config/orion_bootanimation.mk
 
-=======
->>>>>>> parent of 2744840c (orion: Inherit Pixel additions via `WITH_GMS`)
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
