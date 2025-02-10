@@ -1,4 +1,3 @@
-
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 $(call inherit-product, vendor/lineage/config/orion.mk)
@@ -8,12 +7,17 @@ $(call inherit-product-if-exists, vendor/pixel-framework/config.mk)
 
 PRODUCT_BRAND ?= OrionOS
 
-# Pixel additions
-ifeq ($(WITH_GMS),true)
-$(call inherit-product, vendor/pixel-style/config/common.mk)
-
-# Don't dexpreopt prebuilts. (For GMS).
-DONT_DEXPREOPT_PREBUILTS := true
+# Gapps
+WITH_GMS := $(ORION_GAPPS)
+ifeq ($(ORION_GAPPS),true)
+ORION_BUILD_VARIANT := Gapps
+$(call inherit-product, vendor/gms/products/gms.mk)
+$(warning Build Gapps Variant.)
+else
+ORION_BUILD_VARIANT := Vanilla
+PRODUCT_PACKAGES += \
+    UpdaterVanillaOverlay
+$(warning Build Vanilla Variant.)
 endif
 
 # Bootanimation
@@ -162,6 +166,7 @@ PRODUCT_COPY_FILES += \
 
 # Config
 PRODUCT_PACKAGES += \
+    SimpleDeviceConfig \
     SimpleSettingsConfig
 
 # Disable default frame rate limit for games
@@ -216,11 +221,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     rsync
 
-ifeq ($(WITH_GMS),false)
 # Storage manager
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.storage_manager.enabled=true
-endif
 
 # Default wifi country code
 PRODUCT_SYSTEM_PROPERTIES += \
@@ -264,11 +267,9 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 endif
 
 # SetupWizard
-ifeq ($(WITH_GMS),false)
 PRODUCT_PRODUCT_PROPERTIES += \
     setupwizard.theme=glif_v4 \
     setupwizard.feature.day_night_mode_enabled=true
-endif
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \
