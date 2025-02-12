@@ -41,10 +41,10 @@ if [ -f $existingOTAjson ]; then
 	oem=`grep -n "\"oem\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
 	device=`grep -n "\"device\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
 	filename=$3
-  version=echo "$2" | cut -d'-' -f3
-	v_max=echo "$version" | cut -d'.' -f1 | cut -d'v' -f2
-	v_min=echo "$version" | cut -d'.' -f2
-	version=echo $v_max.$v_min
+  	version=`echo "$2" | cut -d'-' -f3`
+  	v_max=`echo "$version" | cut -d'.' -f1 | cut -d'v' -f2`
+  	v_min=`echo "$version" | cut -d'.' -f2`
+  	version=`echo $v_max.$v_min`
 	buildprop=$2/system/build.prop
 	linenr=`grep -n "ro.system.build.date.utc" $buildprop | cut -d':' -f1`
 	timestamp=`sed -n $linenr'p' < $buildprop | cut -d'=' -f2`
